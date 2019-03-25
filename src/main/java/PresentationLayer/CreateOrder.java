@@ -29,7 +29,8 @@ public class CreateOrder extends Command {
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
-        return "customerpage";
+        
+        return "orderpage";
     }
 
 }
