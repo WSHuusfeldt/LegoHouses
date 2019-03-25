@@ -4,14 +4,17 @@
     Author     : kasper
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="DBAccess.Order"%>
 <%@page import="FunctionLayer.LogicFacade"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%  LogicFacade lf = new LogicFacade();
+<%  
     String email = request.getParameter("email");
-    List<Order> orders = lf.getOrders();
+    
+    List<Order> orders = (List<Order>) session.getAttribute("orders");
+            
     
 %>
 <html>
@@ -42,7 +45,7 @@
                         <th>Length</th>
                         <th>Width</th>
                         <th>Height</th>
-                        <th>Status</th>
+                        <th>Stykliste</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,7 +56,7 @@
                         <th><%=o.getLength() %></th>
                         <th><%=o.getWidth() %></th>
                         <th><%=o.getHeight() %></th>
-                        <th><a href="legolist?orderId=<%= o.getOrderId() %>"><button class="btn btn-info">Vis stykliste</button></a></th>
+                        <th><a href="FrontController?command=legolist&orderId=<%=o.getOrderId()%>"><button class="btn btn-info">Vis stykliste</button></a></th>
                     </tr>
                     <% }%>
                 </tbody>

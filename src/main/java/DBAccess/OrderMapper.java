@@ -36,7 +36,7 @@ public class OrderMapper {
         return orders;
     }
 
-    public static List<Order> getOrdersById(int id) throws ClassNotFoundException, SQLException {
+    public static List<Order> getOrdersByUserId(int id) throws ClassNotFoundException, SQLException {
         List<Order> orders = new ArrayList<>();
         try {
             Connection con = Connector.connection();
@@ -58,11 +58,33 @@ public class OrderMapper {
         }
         return orders;
     }
+    
+    public static Order getOrderById(int id) throws ClassNotFoundException, SQLException {
+        try {
+            Connection con = Connector.connection();
+            String query = "SELECT * FROM legohouse.Orders WHERE orderId = ?;";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int orderId = rs.getInt("orderId");
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int height = rs.getInt("height");
+                int userId = rs.getInt("userId");
+                return new Order(orderId, length, width, height, userId);
+                
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 
     public static void createOrder(Order order) throws ClassNotFoundException, SQLException {
         try {
             Connection con = Connector.connection();
-            String query = "INSERT INTO legohouse.Orders (length, width, heigth, userId) VALUES (?, ?, ?, ?);";
+            String query = "INSERT INTO legohouse.Orders (length, width, height, userId) VALUES (?, ?, ?, ?);";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, order.getLength());
             ps.setInt(2, order.getWidth());
@@ -77,9 +99,6 @@ public class OrderMapper {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         OrderMapper om = new OrderMapper();
         //Order o = new Order(10, 20, 30, 4);
-        for (Order o : om.getOrdersById(1)) {
-            System.out.println(o.toString());
-        }
         //om.getOrders();
 
     }

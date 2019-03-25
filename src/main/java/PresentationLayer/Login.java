@@ -1,8 +1,13 @@
 package PresentationLayer;
 
+import DBAccess.Order;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import DBAccess.User;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,6 +27,15 @@ public class Login extends Command {
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
         session.setAttribute("role", user.getRole());
+        
+        LogicFacade lf = new LogicFacade();
+        try {
+            List<Order> orders = lf.getOrders();
+            session.setAttribute("orders", orders);
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+        }
         return user.getRole() + "page";
     }
 

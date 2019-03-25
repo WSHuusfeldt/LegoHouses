@@ -4,11 +4,21 @@
     Author     : William Sehested Huusfeldt
 --%>
 
+
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="DBAccess.Calculator"%>
 <%@page import="DBAccess.Order"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
+    Map<String, Integer> bricks = (Map<String, Integer>) session.getAttribute("bricks");
     Order order = (Order) session.getAttribute("order");
+    //Order order;
+    //if (session.getAttribute("order") != null) {
+    //    order = (Order) session.getAttribute("order");
+    //    HashMap bricks = calc.calcBricks(order);
+    //}
 %>
 <html>
     <head>
@@ -27,19 +37,30 @@
         <title>JSP Page</title>
     </head>
     <body>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col"># Order ID</th>
-                <th scope="col">User ID</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row"><%= order.getOrderId()%></th>
-                <td><%= order.getUserId()%></td>
-            </tr>
-        </tbody>
-    </table>
-</body>
+        <h1>Stykliste for ordre: <%=request.getParameter("orderId")%> </h1>
+        <div class="bs-example">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Type/Side</th>
+                        <th>2x4</th>
+                        <th>2x2</th>
+                        <th>2x1</th>
+                        <th>I alt</th>
+                        <th>I alt x Højde</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Type af klodser</th>
+                        <th><%=bricks.get("2x4")%></th>
+                        <th><%=bricks.get("2x2")%></th>
+                        <th><%=bricks.get("2x1")%></th>
+                        <th><%=bricks.get("2x4") + bricks.get("2x2") + bricks.get("2x1")%></th>
+                        <th><%=(bricks.get("2x4") + bricks.get("2x2") + bricks.get("2x1"))*order.getHeight()%></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
 </html>

@@ -23,10 +23,9 @@ public class CreateOrder extends Command {
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         int heigth = Integer.parseInt(request.getParameter("height"));
-       
+        LogicFacade lf = new LogicFacade();
         try {
-             Order order = LogicFacade.createOrder(length, width, heigth, user.getId());
-             session.setAttribute("order", order);
+            lf.createOrder(length, width, heigth, user.getId());
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
