@@ -10,5 +10,4 @@ public class LoginSampleException extends Exception {
         super(msg);
     }
     
-
 }

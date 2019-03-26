@@ -1,6 +1,5 @@
 package FunctionLayer;
 
-import DBAccess.Calculator;
 import DBAccess.User;
 import DBAccess.Order;
 import DBAccess.OrderMapper;

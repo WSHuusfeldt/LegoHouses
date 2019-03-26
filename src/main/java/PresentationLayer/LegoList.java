@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import DBAccess.Calculator;
+import FunctionLayer.Calculator;
 import DBAccess.Order;
 import DBAccess.User;
 import FunctionLayer.LogicFacade;
