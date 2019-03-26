@@ -4,6 +4,7 @@ import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import DBAccess.Order;
 import DBAccess.User;
+import FunctionLayer.CreateOrderException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,10 +17,10 @@ import javax.servlet.http.HttpSession;
 public class CreateOrder extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws CreateOrderException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        
+
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         int heigth = Integer.parseInt(request.getParameter("height"));
@@ -29,7 +30,7 @@ public class CreateOrder extends Command {
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return "orderpage";
     }
 
