@@ -31,8 +31,6 @@ public class LegoList extends Command {
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
-        
-        
 
         return "legolist";
     }

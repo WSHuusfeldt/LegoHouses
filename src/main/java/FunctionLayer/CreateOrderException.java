@@ -10,9 +10,9 @@ package FunctionLayer;
  * @author APC
  */
 public class CreateOrderException extends Exception {
-    
+
     public CreateOrderException(String msg) {
         super(msg);
     }
-    
+
 }

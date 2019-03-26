@@ -27,17 +27,17 @@ public class Login extends Command {
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
         session.setAttribute("role", user.getRole());
-        
+
         LogicFacade lf = new LogicFacade();
         try {
-            if(user.getRole().equals("employee")) {
-            List<Order> orders = lf.getOrders();
-            session.setAttribute("orders", orders);
+            if (user.getRole().equals("employee")) {
+                List<Order> orders = lf.getOrders();
+                session.setAttribute("orders", orders);
             } else {
                 List<Order> orders = lf.getOrdersByUserId(user.getId());
                 session.setAttribute("orders", orders);
             }
-            
+
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }

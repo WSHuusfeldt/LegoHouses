@@ -13,7 +13,7 @@ import java.util.List;
  * @author William Sehested Huusfeldt
  */
 public class OrderMapper {
-
+    
     public static List<Order> getOrders() throws ClassNotFoundException, SQLException {
         List<Order> orders = new ArrayList<>();
         try {
