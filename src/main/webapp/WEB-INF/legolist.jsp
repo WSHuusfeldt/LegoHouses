@@ -5,10 +5,9 @@
 --%>
 
 
+<%@page import="Data.Order"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
-<%@page import="DBAccess.Calculator"%>
-<%@page import="DBAccess.Order"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%

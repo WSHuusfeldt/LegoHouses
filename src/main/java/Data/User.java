@@ -1,4 +1,4 @@
-package DBAccess;
+package Data;
 
 /**
  * The purpose of User is to...

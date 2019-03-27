@@ -6,8 +6,7 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="DBAccess.Order"%>
-<%@page import="FunctionLayer.LogicFacade"%>
+<%@page import="Data.Order"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%  

@@ -1,6 +1,6 @@
 package FunctionLayer;
 
-import DBAccess.Order;
+import Data.Order;
 import java.util.HashMap;
 
 /**

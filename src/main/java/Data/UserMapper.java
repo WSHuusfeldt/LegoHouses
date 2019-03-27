@@ -1,4 +1,4 @@
-package DBAccess;
+package Data;
 
 import FunctionLayer.LoginSampleException;
 import java.sql.Connection;

@@ -2,8 +2,8 @@ package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
-import DBAccess.Order;
-import DBAccess.User;
+import Data.Order;
+import Data.User;
 import FunctionLayer.CreateOrderException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;

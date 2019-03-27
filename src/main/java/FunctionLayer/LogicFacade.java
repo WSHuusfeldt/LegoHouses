@@ -1,9 +1,9 @@
 package FunctionLayer;
 
-import DBAccess.User;
-import DBAccess.Order;
-import DBAccess.OrderMapper;
-import DBAccess.UserMapper;
+import Data.User;
+import Data.Order;
+import Data.OrderMapper;
+import Data.UserMapper;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;

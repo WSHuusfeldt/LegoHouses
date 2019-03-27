@@ -1,8 +1,8 @@
 package PresentationLayer;
 
 import FunctionLayer.Calculator;
-import DBAccess.Order;
-import DBAccess.User;
+import Data.Order;
+import Data.User;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import java.sql.SQLException;
